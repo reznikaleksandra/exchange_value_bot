@@ -6,7 +6,7 @@ import texts
 from exceptions import WrongValue, NetworkException
 
 bot = telebot.TeleBot(TOKEN)
-logging.basicConfig(level=logging.INFO, filename="logs\log.log", filemode="w",
+logging.basicConfig(level=logging.INFO, filename="logs/log.log", filemode="w",
                     format="%(asctime)s %(levelname)s %(message)s")
 
 
@@ -26,7 +26,7 @@ def command_values(message):
 def command_values(message):
     if message.from_user.username in texts.admin_list.values():
         bot.send_message(message.chat.id, texts.admin_message)
-        logfile = 'logs\log.log'
+        logfile = 'logs/log.log'
         bot.send_document(chat_id=message.chat.id, document=open(logfile, 'rb'))
         logging.info(f'{message.from_user.username} send {message.text}')
     else:
