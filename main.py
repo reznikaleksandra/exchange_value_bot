@@ -52,7 +52,7 @@ def get_text(message):
                                           f'{str(engine.result_exchange(amount, count=engine.count_money(base, into)))}'
                                           f'{into}\nКурс обмена равен {engine.count_money(base, into)}')
     except WrongValue as e:
-        bot.send_message(message.chat.id, f'{texts.exception_message}, {e}', parse_mode='markdown')
+        bot.send_message(message.chat.id, f'{texts.exception_message} {e}', parse_mode='markdown')
     except NetworkException:
         bot.send_message(message.chat.id, f'{texts.network_exception}')
     logging.info(f'{message.from_user.username} send {message.text}')
